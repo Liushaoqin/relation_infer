@@ -1,13 +1,12 @@
 import re
-from collections import defaultdict
 
-import pkuseg
 import os
 import numpy as np
 import pickle
 import pkuseg
 
-import param as P
+from source import param as P
+
 
 def load_dataset(path):
     label2data, label2name = get_file(path)

@@ -1,6 +1,6 @@
-from data import get_train_data
+from source.data import get_train_data
 import tensorflow as tf
-import  numpy as np
+import numpy as np
 
 def lstm_learner(batch_embeddings):
     # batchsize * embedding size * time step
@@ -9,7 +9,7 @@ def lstm_learner(batch_embeddings):
     x_in_2 = tf.reshape(x_in, [-1, 25, 128])
     lstm_cell = tf.nn.rnn_cell.BasicLSTMCell(128)
     init_state = lstm_cell.zero_state(batch_size=100, dtype=tf.float32)
-    outputs, states = tf.nn.dynamic_rnn(lstm_cell, x_in_2, initial_state= init_state, time_major=False)
+    outputs, states = tf.nn.dynamic_rnn(lstm_cell, x_in_2, initial_state=init_state, time_major=False)
     results = tf.matmul(states[1], w2) + b2
     return results
 

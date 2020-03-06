@@ -112,7 +112,7 @@ for n in address:
             address.add(n[:4])
 
 if __name__ == '__main__':
-    stop_words = parse_rule("rule.yml")
+    stop_words = parse_rule("../rule.yml")
     file_names = parse_file_name("", stop_words)
     a = set()
     a.add(1)
